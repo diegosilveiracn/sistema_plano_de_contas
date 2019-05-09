@@ -276,6 +276,7 @@
 'Username already taken': 'Username already taken',
 'Username retrieve': 'Username retrieve',
 'Users': 'Users',
+'Value not in database': 'Value not in database',
 'Verify Password': 'Verify Password',
 'Videos': 'Vídeos',
 'View': 'Visualização',
