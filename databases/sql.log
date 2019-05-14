@@ -1,4 +1,4 @@
-timestamp: 2019-05-05T21:01:46.858510
+timestamp: 2019-05-14T09:52:06.901000
 CREATE TABLE "auth_user"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "first_name" CHAR(128),
@@ -10,21 +10,21 @@ CREATE TABLE "auth_user"(
     "registration_id" CHAR(512)
 );
 success!
-timestamp: 2019-05-05T21:01:46.988987
+timestamp: 2019-05-14T09:52:07.051000
 CREATE TABLE "auth_group"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "role" CHAR(512),
     "description" TEXT
 );
 success!
-timestamp: 2019-05-05T21:01:47.111474
+timestamp: 2019-05-14T09:52:07.190000
 CREATE TABLE "auth_membership"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
     "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  
 );
 success!
-timestamp: 2019-05-05T21:01:47.234851
+timestamp: 2019-05-14T09:52:07.326000
 CREATE TABLE "auth_permission"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  ,
@@ -33,7 +33,7 @@ CREATE TABLE "auth_permission"(
     "record_id" INTEGER
 );
 success!
-timestamp: 2019-05-05T21:01:47.437720
+timestamp: 2019-05-14T09:52:07.456000
 CREATE TABLE "auth_event"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "time_stamp" TIMESTAMP,
@@ -43,7 +43,7 @@ CREATE TABLE "auth_event"(
     "description" TEXT
 );
 success!
-timestamp: 2019-05-05T21:01:47.560482
+timestamp: 2019-05-14T09:52:07.616000
 CREATE TABLE "auth_cas"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
@@ -53,335 +53,38 @@ CREATE TABLE "auth_cas"(
     "renew" CHAR(1)
 );
 success!
-timestamp: 2019-05-05T21:25:45.501469
-CREATE TABLE "contas"(
-    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "autor" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
-    "categoria" CHAR(512) NOT NULL,
-    "tipo" CHAR(512) NOT NULL,
-    "descricao" CHAR(512) NOT NULL,
-    "data_criacao" TIMESTAMP
-);
-success!
-timestamp: 2019-05-05T21:30:09.506852
-CREATE TABLE "categorias"(
-    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "categoria" CHAR(512) NOT NULL
-);
-success!
-success!
-success!
-success!
-success!
-success!
-timestamp: 2019-05-08T19:11:04.271972
-ALTER TABLE "contas" ADD "valor" CHAR(512);
-success!
-success!
-timestamp: 2019-05-08T19:12:03.995273
-ALTER TABLE "contas" ADD "item" CHAR(512);
-success!
-success!
-timestamp: 2019-05-08T19:15:32.707722
+timestamp: 2019-05-14T09:56:34.466000
 CREATE TABLE "tipo_contas"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "tipo" CHAR(512) NOT NULL
 );
 success!
+timestamp: 2019-05-14T09:56:34.662000
+CREATE TABLE "contas"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "tipo" INTEGER REFERENCES "tipo_contas" ("id") ON DELETE CASCADE  NOT NULL ,
+    "descricao" CHAR(512) NOT NULL,
+    "conta_pai" INTEGER REFERENCES "contas" ("id") ON DELETE CASCADE  
+);
 success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-timestamp: 2019-05-08T19:20:22.950181
+timestamp: 2019-05-14T10:03:18.008000
 CREATE TABLE "contas_tipo"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "tipo" CHAR(512) NOT NULL
 );
 success!
-timestamp: 2019-05-08T19:20:24.861808
+timestamp: 2019-05-14T10:03:18.392000
 CREATE TABLE "contas_categoria"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "autor" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  NOT NULL ,
     "tipo" INTEGER REFERENCES "contas_tipo" ("id") ON DELETE CASCADE  NOT NULL ,
-    "categoria" CHAR(512),
-    "data_criacao" TIMESTAMP
+    "categoria" CHAR(512) NOT NULL
 );
 success!
-success!
-timestamp: 2019-05-08T19:33:38.747164
-CREATE TABLE "contas_item"(
+timestamp: 2019-05-14T10:09:51.109000
+CREATE TABLE "person"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "autor" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  NOT NULL ,
-    "tipo" INTEGER REFERENCES "contas_tipo" ("id") ON DELETE CASCADE  NOT NULL ,
-    "categoria" INTEGER REFERENCES "contas_categoria" ("id") ON DELETE CASCADE  NOT NULL ,
-    "item" CHAR(512) NOT NULL,
-    "data_criacao" TIMESTAMP
+    "name" CHAR(512),
+    "father_id" INTEGER REFERENCES "person" ("id") ON DELETE CASCADE  ,
+    "mother_id" INTEGER REFERENCES "person" ("id") ON DELETE CASCADE  
 );
-success!
-timestamp: 2019-05-08T19:34:13.589574
-ALTER TABLE "contas_item" ADD "descricao" CHAR(512);
-success!
-timestamp: 2019-05-08T19:37:39.699249
-ALTER TABLE "contas_item" ADD "valor" DOUBLE NOT NULL;
-timestamp: 2019-05-08T19:39:15.076563
-ALTER TABLE "contas_item" ADD "valor" DOUBLE NOT NULL;
-timestamp: 2019-05-08T19:39:18.445715
-ALTER TABLE "contas_item" ADD "valor" DOUBLE NOT NULL;
-timestamp: 2019-05-08T19:40:33.666964
-ALTER TABLE "contas_item" ADD "valor" DOUBLE NOT NULL DEFAULT 0.0;
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-timestamp: 2019-05-08T21:17:07.286381
-CREATE TABLE "contas_itens"(
-    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "item" CHAR(512),
-    "categoria" INTEGER REFERENCES "contas_categoria" ("id") ON DELETE CASCADE  
-);
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
 success!

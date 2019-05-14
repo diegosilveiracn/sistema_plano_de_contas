@@ -56,7 +56,3 @@ def download():
     http://..../[app]/default/download/[filename]
     """
     return response.download(request, db)
-
-def contas():
-    contas = db(db.contas).select()
-    return dict(contas=contas)
