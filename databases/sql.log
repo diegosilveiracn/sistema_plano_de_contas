@@ -88,3 +88,5 @@ CREATE TABLE "person"(
     "mother_id" INTEGER REFERENCES "person" ("id") ON DELETE CASCADE  
 );
 success!
+success!
+success!

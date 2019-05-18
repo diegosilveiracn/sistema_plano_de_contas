@@ -56,3 +56,7 @@ def download():
     http://..../[app]/default/download/[filename]
     """
     return response.download(request, db)
+
+def plano_de_contas():
+    contas = db(db.contas).select()
+    return dict(contas=contas)
