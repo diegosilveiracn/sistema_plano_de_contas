@@ -6,3 +6,10 @@
 body{
 	font-family: 'Raleway', sans-serif;
 }
+
+#select-categoria-lancamento option{
+    display: none;
+}
+#select-descricao-lancamento option{
+    display: none;
+}
