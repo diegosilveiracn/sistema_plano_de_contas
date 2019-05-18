@@ -5,9 +5,6 @@
 # -------------------------------------------------------------------------
 
 # ---- example index page ----
-def index():
-    response.flash = T("Hello World")
-    return dict(message=T('Welcome to web2py!'))
 
 # ---- API (example) -----
 @auth.requires_login()
@@ -60,3 +57,5 @@ def download():
 def plano_de_contas():
     contas = db(db.contas).select()
     return dict(contas=contas)
+def index():
+    return dict();
