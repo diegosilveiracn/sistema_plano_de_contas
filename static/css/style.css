@@ -13,3 +13,11 @@ body{
 #select-descricao-lancamento option{
     display: none;
 }
+
+.fg-categoria-cadastro{
+	display: none;
+}
+
+.fg-descricao-cadastro{
+	display: none;
+}
