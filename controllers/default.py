@@ -56,6 +56,8 @@ def download():
 
 def plano_de_contas():
     contas = db(db.contas).select()
-    return dict(contas=contas)
+    #grid = SQLFORM.grid(db.contas)
+    return locals()
+    #return dict(contas=contas)
 def index():
     return dict();
