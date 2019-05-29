@@ -1,0 +1,15 @@
+.bg-azul{
+	background-color: #2B7CD5;
+	color:white;
+}
+
+body{
+	font-family: 'Raleway', sans-serif;
+}
+
+#select-categoria-lancamento option{
+    display: none;
+}
+#select-descricao-lancamento option{
+    display: none;
+}
