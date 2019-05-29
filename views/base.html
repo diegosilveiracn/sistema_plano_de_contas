@@ -21,17 +21,20 @@
 
   <body class="d-flex flex-column h-100">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-azul">
+    <nav class="navbar navbar-expand-lg navbar-light bg-azul mb-3">
       <div class="container">
         <a class="navbar-brand text-white" href="{{=URL('index')}}">Sistema</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="collapse navbar-collapse justify-content-around" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-item nav-link active text-white" href="{{=URL('index')}}">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active text-white" href="{{=URL('index')}}">Inicio <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link text-white" href="#">Perfil</a>
             <a class="nav-item nav-link text-white" href="{{=URL('plano_de_contas')}}">Plano de Contas</a>
-            <a class="nav-item nav-link text-white" href="#">Minha Conta</a>
+            <a class="nav-item nav-link text-white" href="{{=URL('lancamentos')}}">Lançamentos</a>
+            <a class="nav-item nav-link text-white" href="{{=URL('plano_de_contas')}}">Fluxo de Caixa Diário</a>
+            <a class="nav-item nav-link text-white" href="#">Relatório</a>
             <a class="nav-item nav-link text-white" href="#">Sair</a>
           </div>
         </div>
@@ -58,28 +61,49 @@
       Jquery do Bootstrap
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     -->
+
     <script>
       $(document).ready(function(){
         $(".apagar").click(function(){
           $(this).hide();
         });
-
         $('#select-tipo-lancamento').on('change', function(){
+        $('#select-classificacao').on('change', function(){
           var tipo = this.value;
           $('#select-categoria-lancamento option').each(function(){
+          $('#select-categoria option').each(function(){
               var $this = $(this);
               if($this.data('tipo') == tipo) $this.show();
               else $this.hide();
           });
         });
         $('#select-categoria-lancamento').on('change', function(){
+        $('#select-categoria').on('change', function(){
           var categoria = this.value;
           $('#select-descricao-lancamento option').each(function(){
+          $('#select-descricao option').each(function(){
               var $this = $(this);
               if($this.data('categoria') == categoria) $this.show();
               else $this.hide();
           });
         });
+        var tipocadastro; 
+        $('#select-tipo').on('change',function(){
+          var tipo = this.value;
+            if(tipo == "conta") {
+              $('.fg-categoria-cadastro').show();
+              $('.fg-descricao-cadastro').hide();
+              $('#form-select-categoria-lancamento').hide();
+              tipocadastro = 0;
+            }
+            else {
+              $('.fg-categoria-cadastro').hide();
+              $('.fg-descricao-cadastro').show();
+              $('#form-select-categoria-lancamento').show();
+              tipocadastro = 1;
+            }
+    
+      });
       });
     </script>
     <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>

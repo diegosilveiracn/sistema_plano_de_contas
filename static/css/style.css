@@ -1,5 +1,5 @@
 .bg-azul{
-	background-color: #2B7CD5;
+	background-color: #a9abae;
 	color:white;
 }
 
@@ -13,3 +13,8 @@ body{
 #select-descricao-lancamento option{
     display: none;
 }
+
+#esqueceu-sua-senha{
+	color:black;
+}
+

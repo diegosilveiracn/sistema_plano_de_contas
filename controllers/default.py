@@ -59,5 +59,11 @@ def plano_de_contas():
     #grid = SQLFORM.grid(db.contas)
     return locals()
     #return dict(contas=contas)
+def lancamentos():
+    return dict();
+
 def index():
+    return dict();
+
+def user_cadastro():
     return dict();
