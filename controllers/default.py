@@ -56,11 +56,17 @@ def download():
 
 def plano_de_contas():
     contas = db(db.contas).select()
+    tipos = db(db.tipo_contas).select()
+
     #grid = SQLFORM.grid(db.contas)
     return locals()
     #return dict(contas=contas)
 def lancamentos():
-    return dict();
+    contas = db(db.contas).select()
+    tipos = db(db.tipo_contas).select()
+
+    #grid = SQLFORM.grid(db.contas)
+    return locals()
 
 def index():
     return dict();

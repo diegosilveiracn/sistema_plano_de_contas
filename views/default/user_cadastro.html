@@ -1,90 +1,119 @@
 {{extend 'base.html'}}
+<div class="container-fluid">
+  <div class="container" id="login">
+    <div class="row justify-content-center">
+      <div class="col-md-8 shadow p-3 mb-5 bg-white rounded	 align-self-center" >
+					<h2 class="text-center">
+							Continuar Cadastro
+						</h2>
+        <div class="row my-4 justify-content-center">
+          <div class="col-md-6">
+            <form>
+              <div class="row my-4">
+                <div class="col text-center">
+										<div class="card mx-auto" style="width: 10rem;">
+												<img
+												class="img-fluid"
+												src="{{=URL('static','images/logo-empresa.jpg')}}"
+											/>												
+											<div class="card-body">
+													<a href="#" class="btn btn-primary" style="font-size: 0.8em;">Escolher foto</a>
+												</div>
+											</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Nome</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                />
+							</div>
+							<div class="form-group">
+									<label for="exampleInputEmail1">Email</label>
+									<input
+										type="email"
+										class="form-control"
+										id="exampleInputEmail1"
+										aria-describedby="emailHelp"
+									/>
+								</div>
+								<div class="form-group">
+										<label for="exampleInputEmail1">CNPJ ou CPF</label>
+										<input
+											type="email"
+											class="form-control"
+											id="exampleInputEmail1"
+											aria-describedby="emailHelp"
+										/>
+									</div>
+									<div class="form-group">
+											<label for="exampleInputEmail1">Endereço</label>
+											<textarea class="form-control" aria-label="With textarea"></textarea>
+										</div>
+										<div class="form-group">
+												<label for="exampleInputEmail1">Telefone</label>
+												<input
+													type="email"
+													class="form-control"
+													id="exampleInputEmail1"
+													aria-describedby="emailHelp"
+												/>
+											</div>
+											<div class="form-group">
+													<label for="exampleInputEmail1">Website</label>
+													<input
+														type="email"
+														class="form-control"
+														id="exampleInputEmail1"
+														aria-describedby="emailHelp"
+													/>
+												</div>
+												
+												
+              <div class="form-group">
+                <label for="exampleInputPassword1">Senha</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                />
+							</div>
+							<div class="form-group">
+									<label for="exampleInputPassword1">Confirmar Senha</label>
+									<input
+										type="password"
+										class="form-control"
+										id="exampleInputPassword1"
+									/>
+								</div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <button
+                    type="submit"
+                    class="btn btn-outline-primary btn-block"
+                  >
+                    Entrar
+                  </button>
+                </div>
+                <div class="col-md-6">
+                  <a
+                    href="{{=URL('user_cadastro')}}"
+                    class="btn btn-primary btn-block"
+                    >Criar Conta</a
+                  >
+                </div>
+              </div>
+            </form>
 
-<div class="container-fluid main-container">
-      
-
-<div class="row"> 
-  <div id="web2py_user_form" class="col-lg-6" style="background-color:white; margin: 0 auto 5px auto; box-shadow: 0 0 5px #a1a1a1; border-radius:5px;padding: 20px">
-    <h2 class="text-center">
-      Continuar Cadastro
-    </h2>
-    <form action="#" enctype="multipart/form-data" method="post">
-    	<div class="row justify-content-center my-4">
-    		<div class="col-4 col-sm-3 col-md-2 col-lg-2">
-    			<img class="img-fluid" src="{{=URL('static','images/logoempresa.png')}}">
-    		</div>
-    	</div>
-    	<div class="form-group row" id="auth_user_first_name__row">
-    		<label class="form-control-label col-sm-3" for="auth_user_first_name" id="auth_user_first_name__label">Nome</label>
-    		<div class="col-sm-9"><input class="form-control string" id="auth_user_first_name" name="first_name" type="text" value="">
-    			<span class="help-block"></span>
-    		</div>
-    	</div>
-    	<div class="form-group row" id="auth_user_first_name__row">
-    		<label class="form-control-label col-sm-3" for="auth_user_first_name" id="auth_user_first_name__label">Email</label>
-    		<div class="col-sm-9"><input class="form-control string" id="auth_user_first_name" name="first_name" type="text" value="">
-    			<span class="help-block"></span>
-    		</div>
-    	</div>
-    		<div class="form-group row" id="auth_user_last_name__row">
-    			<label class="form-control-label col-sm-3" for="auth_user_last_name" id="auth_user_last_name__label">CNPJ ou CPF</label>
-    			<div class="col-sm-9"><input class="form-control string" id="auth_user_last_name" name="last_name" type="text" value="">
-    				<span class="help-block"></span>
-    			</div>
-    		</div>
-    		<div class="form-group row" id="auth_user_email__row">
-    			<label class="form-control-label col-sm-3" for="auth_user_email" id="auth_user_email__label">Endereço</label>
-    			<div class="col-sm-9">
-    				<textarea class="form-control" aria-label="With textarea"></textarea>
-    				<span class="help-block"></span>
-    			</div>
-    		</div>
-    		<div class="form-group row" id="auth_user_email__row">
-    			<label class="form-control-label col-sm-3" for="auth_user_email" id="auth_user_email__label">Telefone</label>
-    			<div class="col-sm-9">
-    				<input class="form-control string" id="auth_user_email" name="email" type="text" value="">
-    				<span class="help-block"></span>
-    			</div>
-    		</div>
-    		<div class="form-group row" id="auth_user_email__row">
-    			<label class="form-control-label col-sm-3" for="auth_user_email" id="auth_user_email__label">Website</label>
-    			<div class="col-sm-9">
-    				<input class="form-control string" id="auth_user_email" name="email" type="text" value="">
-    				<span class="help-block"></span>
-    			</div>
-    		</div>
-    		<div class="form-group row" id="auth_user_password__row">
-    			<label class="form-control-label col-sm-3" for="auth_user_password" id="auth_user_password__label">Senha</label>
-    			<div class="col-sm-9">
-    				<input class="form-control password entropy_check" id="auth_user_password" name="password" type="password" value="">
-    				<span class="help-block"></span>
-    			</div>
-    		</div>
-    		<div class="form-group row" id="auth_user_password_two__row">
-    			<label class="form-control-label col-sm-3" for="auth_user_password_two" id="auth_user_password_two__label">Confirmar Senha</label>
-    			<div class="col-sm-9">
-    				<input class="form-control password" id="auth_user_password_two" name="password_two" type="password" value="">
-    				<span class="help-block"></span>
-    			</div>
-    		</div>
-    		<div class="form-group row " id="submit_record__row">
-    			<div class="col-md-12 text-right">
-    				<input class="btn btn-primary " type="submit" value="Salvar">
-    			</div>
-    		</div>
-    		<div style="display:none;">
-    			<input name="_next" type="hidden" value="/sistema_plano_de_contas/default/index">
-    			<input name="_formkey" type="hidden" value="43fd547e-b9b4-4ae9-af9b-396fb68ee9d1">
-    			<input name="_formname" type="hidden" value="register">
-    		</div>
-    	</form>
-    
+            <p class="my-4">
+              <a href="#" id="esqueceu-sua-senha">Esqueceu sua senha?</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
-
-
-
-
-      
-    </div>

@@ -8,32 +8,40 @@
     <div class="col-md-6 text-center"><h4>Movimentações</h4></div>
   </div>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12 col-lg-6 my-3">
       <form>
         
         <div class="form-group">
           <label for="exampleFormControlSelect1">Tipo de Lançamento</label>
           <select class="custom-select" id="select-tipo-lancamento" required>
               <option selected value="">Escolha o tipo</option>
-              <option value="entrada">Entrada</option>
-              <option value="saida">Saída</option>
+              {{for tipo in tipos:}}
+              <option value="{{=tipo.tipo}}">{{=tipo.tipo}}</option>
+              {{pass}}
             </select>
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <select class="custom-select" id="select-categoria-lancamento" required>
               <option selected value="">Escolha a categoria</option>
-              <option value="Saída Administrativa" data-tipo="saida">Saída Administrativa</option>
-              <option value="Saída Operacional" data-tipo="saida">Saída Operacional</option>
-              <option value="Recebimento de Cliente" data-tipo="entrada">Recebimento de Cliente</option>
+              {{for conta in contas:}}
+                {{for tipo in tipos:}}
+                  {{if tipo.id == conta.tipo and not conta.conta_pai:}}
+                    <option value="{{=conta.descricao}}" data-tipo="{{=tipo.tipo}}">{{=conta.descricao}}</option>
+                  {{pass}}
+                {{pass}}
+              {{pass}}
             </select>
           </div>
               <select class="custom-select" id="select-descricao-lancamento" required>
               <option selected value="">Escolha a descrição</option>
-              <option value="1" data-categoria="Saída Administrativa">SA 1</option>
-              <option value="2" data-categoria="Saída Operacional">SO 1</option>
-              <option value="3" data-categoria="Recebimento de Cliente">Cliente A</option>
-
+              {{for conta in contas:}}
+                {{for conta2 in contas:}}
+                  {{if conta2.id == conta.conta_pai:}}
+                    <option value="{{=conta.descricao}}" data-categoria="{{=conta2.descricao}}">{{=conta.descricao}}</option>
+                  {{pass}}
+                {{pass}}
+              {{pass}}
             </select>
         </div>
         <div class="input-group mb-3">
@@ -46,8 +54,8 @@
       </form>
       
     </div>
-    <div class="col-md-6 text-center">
-      <div class="row mb-4">
+    <div class="col-md-12 col-lg-6 my-3 text-center">
+        <div class="row mb-4">
         <div class="col-md-12">
           <div class="row">
             <div class="col"><h5>Saldo Atual</h5></div>
@@ -60,6 +68,12 @@
         <div class="row">
           <div class="col"><h5>Histórico</h5></div>
         </div>
+        <div class=row>
+            <div class="col-md-3">Valor</div>
+            <div class="col-md-3">Conta</div>
+            <div class="col-md-3">Data do Lançamento</div>
+            <div class="col-md-3">Isaac Batista</div>
+          </div>
         <div class=row>
           <div class="col-md-3">+2302.32</div>
           <div class="col-md-3">Recebimento de Cliente</div>
