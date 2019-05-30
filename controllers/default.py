@@ -57,7 +57,15 @@ def download():
 def plano_de_contas():
     contas = db(db.contas).select()
     tipos = db(db.tipo_contas).select()
-
+    form = SQLFORM(db.contas)
+    if form.process(session=None, formname='cadastrar-conta').accepted:
+        redirect(URL('plano_de_contas'))
+        session.flash = 'form accepted'
+    elif form.errors:
+        session.flash = 'form has errors'
+    else:
+        session.flash = 'please fill the form'
+    
     #grid = SQLFORM.grid(db.contas)
     return locals()
     #return dict(contas=contas)
@@ -65,6 +73,7 @@ def lancamentos():
     contas = db(db.contas).select()
     tipos = db(db.tipo_contas).select()
 
+    
     #grid = SQLFORM.grid(db.contas)
     return locals()
 
@@ -73,3 +82,4 @@ def index():
 
 def user_cadastro():
     return dict();
+

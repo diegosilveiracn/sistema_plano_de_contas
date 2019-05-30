@@ -67,3 +67,17 @@ CREATE TABLE "contas"(
     "conta_pai" INTEGER REFERENCES "contas" ("id") ON DELETE CASCADE  
 );
 success!
+timestamp: 2019-05-30T11:28:52.911000
+CREATE TABLE "movimentacao_contas"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "movimentacao" CHAR(512) NOT NULL
+);
+success!
+timestamp: 2019-05-30T11:28:53.120000
+ALTER TABLE "contas" ADD "movimentacao" INTEGER REFERENCES "movimentacao_contas" ("id") ON DELETE CASCADE  NOT NULL ;
+timestamp: 2019-05-30T11:29:03.964000
+ALTER TABLE "contas" ADD "movimentacao" INTEGER REFERENCES "movimentacao_contas" ("id") ON DELETE CASCADE  NOT NULL ;
+timestamp: 2019-05-30T11:30:11.289000
+ALTER TABLE "contas" ADD "movimentacao" INTEGER REFERENCES "movimentacao_contas" ("id") ON DELETE CASCADE  NOT NULL ;
+timestamp: 2019-05-30T11:30:45.482000
+ALTER TABLE "contas" ADD "movimentacao" INTEGER REFERENCES "movimentacao_contas" ("id") ON DELETE CASCADE  NOT NULL ;

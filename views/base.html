@@ -75,6 +75,13 @@
         </div>
       </div>
     </nav>
+    <div class="row justify-content-center">
+      <div class="col-md-6"><div class="flash text-center alert alert-primary" id="div-alert-cadastro" role="alert">
+        {{=session.flash or ''}}
+      </div>
+    </div>
+    </div>
+
 
     {{ include }}
     <footer class="footer mt-auto py-3">
@@ -97,10 +104,8 @@
 
     <script>
       $(document).ready(function() {
-        $(".apagar").click(function() {
-          $(this).hide();
-        });
-
+        
+        //SELECT do form lançamento
         $("#select-tipo-lancamento").on("change", function() {
           var tipo = this.value;
           $("#select-categoria-lancamento option").each(function() {
@@ -136,6 +141,17 @@
             }
           });
         });
+        
+        //cadastro plano de contas 
+        $('#abrir-cadastrar-receita').on("click", function() {
+          $('#label-criar-classificacao').text("Cadastrar nova receita");
+          $('input:hidden[name=tipo]').val("4");
+        })
+        $('#abrir-cadastrar-despesa').on("click", function() {
+          $('#label-criar-classificacao').text("Cadastrar nova despesa");
+          $('input:hidden[name=tipo]').val("3");
+        })
+
       });
     </script>
     <script>
