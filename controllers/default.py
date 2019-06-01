@@ -55,21 +55,50 @@ def download():
     return response.download(request, db)
 
 def plano_de_contas():
-    contas = db(db.contas).select()
+    contas = db(db.contas).select(orderby=~db.contas.id)
     tipos = db(db.tipo_contas).select()
-
+    form = SQLFORM(db.contas)
+    if form.process(session=None, formname='cadastrar-conta').accepted:
+        session.flash = 'conta cadastrada'
+        redirect(URL('plano_de_contas'))
+    elif form.errors:
+        response.flash = 'form has errors'
+    else:
+        response.flash = 'please fill the form'
+    
+    if form.process(session=None, formname='cadastrar-item').accepted:
+        redirect(URL('plano_de_contas'))
+        session.flash="item cadastrado"
+    elif form.errors:
+        response.flash = 'form has errors'
+    else:
+        response.flash = 'please fill the form'
+    
     #grid = SQLFORM.grid(db.contas)
     return locals()
     #return dict(contas=contas)
+
 def lancamentos():
     contas = db(db.contas).select()
     tipos = db(db.tipo_contas).select()
+    lancamentos = db(db.lancamentos).select()
+    
+    form = SQLFORM(db.lancamentos)
 
+    if form.process(session=None, formname='cadastrar-lancamento').accepted:
+        redirect(URL('lancamentos'))
+        session.flash="item cadastrado"
+    elif form.errors:
+        response.flash = 'form has errors'
+    else:
+        response.flash = 'please fill the form'
+    
+    
     #grid = SQLFORM.grid(db.contas)
     return locals()
 
 def index():
-    return dict();
+    return dict()
 
 def user_cadastro():
-    return dict();
+    return dict()

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="h-100" lang="pt-br">
   <head>
-    <meta charset="ISO 8859-1" />
+    <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -23,7 +23,7 @@
     <link href="{{=URL('static','css/style.css')}}" rel="stylesheet" />
 
     <link
-      href="https://fonts.googleapis.com/css?family=Raleway:400,500,700,900&display=swap"
+      href="https://fonts.googleapis.com/css?family=Raleway:400,500&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -76,6 +76,7 @@
       </div>
     </nav>
 
+
     {{ include }}
     <footer class="footer mt-auto py-3">
       <div class="container">
@@ -96,11 +97,10 @@
     -->
 
     <script>
+      
       $(document).ready(function() {
-        $(".apagar").click(function() {
-          $(this).hide();
-        });
-
+        
+        //SELECT do form lançamento
         $("#select-tipo-lancamento").on("change", function() {
           var tipo = this.value;
           $("#select-categoria-lancamento option").each(function() {
@@ -109,7 +109,6 @@
             else $this.hide();
           });
         });
-
         $("#select-categoria-lancamento").on("change", function() {
           var categoria = this.value;
           $("#select-descricao-lancamento option").each(function() {
@@ -118,7 +117,6 @@
             else $this.hide();
           });
         });
-
         $("#select-tipo-cadastro").on("change", function() {
           var tipocadastro;
           $("#select-tipo").on("change", function() {
@@ -136,6 +134,34 @@
             }
           });
         });
+        
+        //cadastro plano de contas 
+        $('#abrir-cadastrar-receita').on("click", function() {
+          $('#label-criar-classificacao').text("Cadastrar nova receita");
+          $('input:hidden[name=tipo]').val("4");
+        })
+        $('#abrir-cadastrar-despesa').on("click", function() {
+          $('#label-criar-classificacao').text("Cadastrar nova despesa");
+          $('input:hidden[name=tipo]').val("3");
+        })
+        //cadastro itens
+        $('.abrir-cadastrar-receita-item').on("click", function() {
+          var conta_pai = $(this).data('conta_pai');
+          console.log(conta_pai)
+          $('#label-criar-classificacao').text("Cadastrar nova receita");
+          $('input:hidden[name=tipo]').val("4");
+          $('input:hidden[name=conta_pai]').val(conta_pai);
+        })
+        $('.abrir-cadastrar-despesa-item').on("click", function() {
+          var conta_pai = $(this).data('conta_pai');
+          console.log(conta_pai)
+          $('#label-criar-classificacao').text("Cadastrar nova despesa");
+          $('input:hidden[name=tipo]').val("3");
+          $('input:hidden[name=conta_pai]').val(conta_pai);
+        })
+
+     
+
       });
     </script>
     <script>

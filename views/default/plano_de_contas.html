@@ -1,5 +1,5 @@
 {{extend 'base.html'}}
-<div></div>
+
 <div class="container-fluid py-4 ">
   <div class="container  ">
     <div class="row justify-content-center  ">
@@ -7,132 +7,152 @@
         <h3 class="">Plano de Contas</h3>
       </div>
     </div>
-    <div class="row my-3 shadow p-3 mb-5 bg-white rounded">
-      <div class="col-md-3 col-sm-6 col-12 my-2 ">
-        <button class="btn btn-outline-primary btn-block h-100 ">
-          Cadastrar classificação
-        </button>
-      </div>
-      {{for conta in contas:}}
-      {{if not conta.conta_pai:}}
-      <div class="col-md-3 col-sm-6 col-12 my-2">
-        <h5 class="align-middle text-center ">
-          {{=A(conta.descricao, _href=URL('default','conta',args=conta.id),_class='text-dark')}}
-        </h5>
+    <div class="container shadow p-3 mb-5 bg-white rounded">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item ">
+          <a class="nav-link active" id="receitas-tab" data-toggle="tab" href="#receitas" role="tab"
+            aria-controls="home" aria-selected="true">Receitas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="despesas-tab" data-toggle="tab" href="#despesas" role="tab" aria-controls="profile"
+            aria-selected="false">Despesas</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="receitas" role="tabpanel" aria-labelledby="receitas-tab">
+          <div class="row my-3 shadow p-3 mb-5 bg-white rounded">
+            <div class="col-md-3 col-sm-6 col-12 my-2 ">
 
-        <ul class="list-group">
-          {{for conta2 in contas:}}
-          {{if conta.id==conta2.conta_pai:}}
-          <li class="list-group-item">{{=conta2.descricao}}</li>
-          {{
-            pass
-          }}
-          {{
-            pass
-          }}
-          <li class="list-group-item">
-            <button class="btn btn-primary btn-block">
-              Cadastrar item
-            </button>
-          </li>
-        </ul>
+              <button class="btn btn-outline-primary btn-block btn-lg" id="abrir-cadastrar-receita" data-toggle="modal"
+                data-target="#modal-cadastrar-classificacao">
+                Cadastrar classificação
+              </button>
+            </div>
+            {{for conta in contas:}}
+            {{if conta.tipo==4 and not conta.conta_pai :}}
+            <div class="col-md-3 col-sm-6 col-12 my-2">
+              <h5 class="align-middle text-center ">
+                {{=A(conta.descricao, _href=URL('default','conta',args=conta.id),_class='text-dark')}}
+              </h5>
+
+              <ul class="list-group">
+                {{for conta2 in contas:}}
+                {{if conta.id==conta2.conta_pai:}}
+                <li class="list-group-item text-center">{{=conta2.descricao}}</li>
+                {{
+                          pass
+                        }}
+                {{
+                          pass
+                        }}
+                <li class="list-group-item">
+                  <button class="btn btn-primary btn-block abrir-cadastrar-receita-item" data-conta_pai="{{=conta.id}}" data-toggle="modal"
+                  data-target="#modal-cadastrar-item">
+                    Cadastrar item
+                  </button>
+                </li>
+              </ul>
+            </div>
+            {{ pass }}
+            {{ pass }}
+          </div>
+        </div>
+        <div class="tab-pane fade" id="despesas" role="tabpanel" aria-labelledby="despesas-tab">
+          <div class="row my-3 shadow p-3 mb-5 bg-white rounded">
+            <div class="col-md-3 col-sm-6 col-12 my-2 ">
+
+              <button class="btn btn-outline-primary btn-block h-100" id="abrir-cadastrar-despesa" data-toggle="modal"
+                data-target="#modal-cadastrar-classificacao">
+                Cadastrar classificação
+              </button>
+            </div>
+            {{for conta in contas:}}
+            {{if conta.tipo == 3 and not conta.conta_pai:}}
+            <div class="col-md-3 col-sm-6 col-12 my-2">
+              <h5 class="align-middle text-center ">
+                {{=A(conta.descricao, _href=URL('default','conta',args=conta.id),_class='text-dark')}}
+              </h5>
+              
+              <ul class="list-group">
+                {{for conta2 in contas:}}
+                {{if conta.id==conta2.conta_pai:}}
+                <li class="list-group-item text-center">{{=conta2.descricao}}</li>
+                {{
+                      pass
+                    }}
+                {{
+                      pass
+                    }}
+                <li class="list-group-item">
+                  <button class="btn btn-primary btn-block abrir-cadastrar-despesa-item"  data-conta_pai="{{=conta.id}}" data-toggle="modal"
+                  data-target="#modal-cadastrar-item">
+                    Cadastrar item
+                  </button>
+                </li>
+              </ul>
+            </div>
+            {{ pass }}
+            {{ pass }}
+          </div>
+        </div>
       </div>
-      {{ pass }}
-      {{ pass }}
     </div>
+
   </div>
 </div>
 
 <!-- Modal -->
-<div
-  class="modal fade"
-  id="exampleModal"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="modal-cadastrar-classificacao" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Cadastrar conta</h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
+        <h5 class="modal-title" id="label-criar-classificacao">Cadastrar conta</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="select-tipo-cadastro">Tipo de Cadastro</label>
-            <select class="custom-select" id="select-tipo" required>
-              <option selected value="">Escolha o tipo</option>
-              <option value="conta">Conta</option>
-              <option value="item">Item</option>
-            </select>
+        <form action="#" enctype="multipart/form-data" method="post">
+          <div class="form-group fg-classificacao-cadastro">
+            <label for="input-classificacao-cadastro" id="label-nome-cadastro">Nome</label>
+            <input type="text" name="descricao" class="form-control" aria-label="classificacao"
+              id="input-classificacao-cadastro" required />
           </div>
-          <div class="form-group">
-            <label for="select-classificacao-cadastro">Classificacao</label>
-            <select class="custom-select" id="select-classificacao" required>
-              <option selected value="">Escolha a classificação</option>
-              <option value="entrada">Entrada</option>
-              <option value="saida">Saí­da</option>
-            </select>
-          </div>
-          <div class="form-group" id="form-select-categoria-lancamento">
-            <label for="select-categoria-lancamento">Categoria</label>
-            <select class="custom-select" id="select-categoria" required>
-              <option selected value="">Escolha a categoria</option>
-              <option value="Saída Administrativa" data-tipo="saida"
-                >Saída Administrativa</option
-              >
-              <option value="SaÃ­da Operacional" data-tipo="saida"
-                >Saí­da Operacional</option
-              >
-              <option value="Recebimento de Cliente" data-tipo="entrada"
-                >Recebimento de Cliente</option
-              >
-            </select>
-          </div>
-          <div class="form-group fg-descricao-cadastro">
-            <label for="input-descricao-cadastro" id="label-descricao-cadastro"
-              >Descrição</label
-            >
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Descrição"
-              aria-label="Descrição"
-              id="input-descricao-cadastro"
-              required
-            />
-          </div>
-          <div class="form-group fg-categoria-cadastro">
-            <label for="input-categoria-cadastro" id="label-categoria-cadastro"
-              >Categoria</label
-            >
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Categoria"
-              aria-label="Categoria"
-              id="input-categoria-cadastro"
-              required
-            />
-          </div>
-
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <input type="hidden" name="tipo" id="tipo-cadastro" value="">
+          <input type="hidden" name="_formname" value="cadastrar-conta" />
+          <button type="submit" class="btn btn-primary">Cadastrar Conta</button>
         </form>
+
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">
-          Close
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal-cadastrar-item" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="label-criar-item">Cadastrar item</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
         </button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+      <div class="modal-body">
+        <form action="#" enctype="multipart/form-data" method="post">
+          <div class="form-group fg-item-cadastro">
+            <label for="input-item-cadastro" id="label-nome-item">Nome</label>
+            <input type="text" name="descricao" class="form-control" aria-label="item"
+              id="input-item-cadastro" required />
+          </div>
+          <input type="hidden" name="tipo" id="tipo-item" value="">
+          <input type="hidden" name="conta_pai" id="conta_pai-item" value="">
+
+          <input type="hidden" name="_formname" value="cadastrar-item" />
+          <button type="submit" class="btn btn-primary">Cadastrar item</button>
+        </form>
+
       </div>
     </div>
   </div>
