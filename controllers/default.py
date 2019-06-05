@@ -80,13 +80,14 @@ def plano_de_contas():
 
 def lancamentos():
     contas = db(db.contas).select()
+    contaspai = db(db.contas.conta_pai==None).select()
     tipos = db(db.tipo_contas).select()
-    lancamentos = db(db.lancamentos).select()
+    lancamento = db(db.lancamento).select()
     
-    form = SQLFORM(db.lancamentos)
+    form = SQLFORM(db.lancamento)
 
     if form.process(session=None, formname='cadastrar-lancamento').accepted:
-        redirect(URL('lancamentos'))
+        redirect(URL('lancamento'))
         session.flash="item cadastrado"
     elif form.errors:
         response.flash = 'form has errors'

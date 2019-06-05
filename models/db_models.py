@@ -13,7 +13,7 @@ db.define_table(
 )
 
 db.define_table(
-	'lancamentos'
+	'lancamento'
     ,Field('conta','reference contas')
     ,Field('valor',type="double",notNull=True)
     ,Field('data_registro','datetime',default=request.now)

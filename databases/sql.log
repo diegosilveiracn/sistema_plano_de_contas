@@ -244,3 +244,28 @@ success!
 success!
 success!
 success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2019-06-04T21:48:59.723442
+CREATE TABLE "lancamento"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "conta" INTEGER REFERENCES "contas" ("id") ON DELETE CASCADE  ,
+    "valor" DOUBLE,
+    "data_registro" TIMESTAMP
+);
+success!
