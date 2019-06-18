@@ -1,0 +1,104 @@
+{{extend 'base.html'}}
+
+<div class="container">
+  <div class="row my-4">
+    <div class="col-md-6">
+      <h4 class="text-center">Lançamentos</h4>
+    </div>
+    <div class="col-md-6 text-center"><h4>Movimentações</h4></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 col-lg-6 my-3">
+    <!--
+      <div class="form-group">
+        <select class="custom-select" id="select-tipo-lancamento" required>
+          <option selected value="">Escolha o tipo</option>
+          {{for tipo in tipos:}}
+          <option value="{{=tipo.tipo}}">{{=tipo.tipo}}</option>
+          {{
+            pass
+          }}
+        </select>
+      </div>
+      <div class="input-group mb-3">
+          <select
+            class="custom-select"
+            id="select-categoria-lancamento"
+            required
+          >
+            <option selected value="">Escolha a categoria</option>
+            {{for conta in contas:}}
+            {{for tipo in tipos:}}
+            {{if tipo.id == conta.tipo and not conta.conta_pai:}}
+            <option
+              value="{{=conta.descricao}}"
+              data-tipo="{{=tipo.tipo}}"
+              >{{=conta.descricao}}</option
+            >
+            {{
+              pass
+            }}
+            {{
+              pass
+            }}
+            {{
+              pass
+            }}
+          </select>
+      </div>
+    -->
+    {{=form}}
+  
+    </div>
+    <div class="col-md-12 col-lg-6 my-3 text-center">
+      <div class="row mb-4">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col"><h5>Saldo Atual</h5></div>
+          </div>
+          <div class="row">
+            <div class="col"><h6>-2999.32</h6></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col"><h5>Histórico</h5></div>
+      </div>
+
+      <div class="row my-4">
+        <div class="col-md-3">Valor</div>
+        <div class="col-md-3">Conta</div>
+        <div class="col-md-3">Data do Lançamento</div>
+        <div class="col-md-3">Autor do Lançamento</div>
+      </div>
+      {{for lancament in lancamento:}}
+      <div class="row my-4">
+        <div class="col-md-3">
+          {{for conta in contas:}}
+            {{if conta.id==lancament.conta:}}
+              {{for contapai in contaspai:}}
+                {{if contapai.id == conta.conta_pai:}}
+                  {{if contapai.tipo == 3:}}
+                  <span class="badge badge-danger">-</span>
+                  {{else:}}
+                  <span class="badge badge-success">+</span>
+                  {{pass}}
+                {{pass}}
+              {{pass}}
+            {{pass}}
+          {{pass}}
+          R${{=lancament.valor}}
+        </div>
+        {{for conta in contas:}}
+        {{if conta.id == lancament.conta:}}
+        <div class="col-md-3">{{=conta.descricao}}</div>
+        {{ pass }}
+        {{ pass }}
+        <div class="col-md-3">{{=lancament.data_registro}}</div>
+        <div class="col-md-3">...</div>
+      </div>
+      {{ pass }}
+    </div>
+  </div>
+</div>

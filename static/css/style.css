@@ -1,0 +1,26 @@
+.bg-azul{
+	background-color: #a9abae;
+	color:white;
+}
+
+body{
+	font-family: 'Raleway', sans-serif;
+}
+
+#select-categoria-lancamento option{
+    display: none;
+}
+#select-descricao-lancamento option{
+    display: none;
+}
+
+.fg-descricao-cadastro{
+	display: none;
+}
+.fg-categ-cadastro{
+	display: none;
+}
+
+#esqueceu-sua-senha{
+	color:black;
+}
