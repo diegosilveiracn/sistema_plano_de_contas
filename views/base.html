@@ -1,105 +1,105 @@
 <!DOCTYPE html>
 <html class="h-100" lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <link rel="icon" href="../../../../favicon.ico" />
+<head>
+  <meta charset="UTF-8" />
+  <meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="icon" href="../../../../favicon.ico" />
 
-    <title>Plano de Contas</title>
+  <title>Plano de Contas</title>
 
-    <!-- Bootstrap core CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <!-- Custom styles for this template -->
-    <link href="{{=URL('static','css/style.css')}}" rel="stylesheet" />
+  <!-- Bootstrap core CSS -->
+  <link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+  crossorigin="anonymous"
+  />
+  <!-- Custom styles for this template -->
+  <link href="{{=URL('static','css/style.css')}}" rel="stylesheet" />
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Raleway:400,500&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+  <link
+  href="https://fonts.googleapis.com/css?family=Raleway:400,500&display=swap"
+  rel="stylesheet"
+  />
+</head>
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-azul mb-3">
-      <div class="container">
-        <a class="navbar-brand text-white" href="{{=URL('index')}}">Sistema</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div
-          class="collapse navbar-collapse justify-content-around"
-          id="navbarNavAltMarkup"
-        >
-          <div class="navbar-nav">
-            <a
-              class="nav-item nav-link active text-white"
-              href="{{=URL('index')}}"
-              >Inicio <span class="sr-only">(current)</span></a
-            >
-            <a class="nav-item nav-link text-white" href="#">Perfil</a>
-            <a
-              class="nav-item nav-link text-white"
-              href="{{=URL('plano_de_contas')}}"
-              >Plano de Contas</a
-            >
-            <a
-              class="nav-item nav-link text-white"
-              href="{{=URL('lancamentos')}}"
-              >Lançamentos</a
-            >
-            <a
-              class="nav-item nav-link text-white"
-              href="{{=URL('plano_de_contas')}}"
-              >Fluxo de Caixa Diário</a
-            >
-            <a class="nav-item nav-link text-white" href="#">Relatório</a>
-            <a class="nav-item nav-link text-white" href="#">Sair</a>
-          </div>
-        </div>
-      </div>
-    </nav>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-azul mb-3">
+    <div class="container">
+      <a class="navbar-brand text-white" href="{{=URL('index')}}">Sistema</a>
+      <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+    class="collapse navbar-collapse justify-content-around"
+    id="navbarNavAltMarkup"
+    >
+    <div class="navbar-nav">
+      <a
+      class="nav-item nav-link active text-white"
+      href="{{=URL('index')}}"
+      >Inicio <span class="sr-only">(current)</span></a
+      >
+      <a class="nav-item nav-link text-white" href="#">Perfil</a>
+      <a
+      class="nav-item nav-link text-white"
+      href="{{=URL('plano_de_contas')}}"
+      >Plano de Contas</a
+      >
+      <a
+      class="nav-item nav-link text-white"
+      href="{{=URL('lancamentos')}}"
+      >Lançamentos</a
+      >
+      <a
+      class="nav-item nav-link text-white"
+      href="{{=URL('plano_de_contas')}}"
+      >Fluxo de Caixa Diário</a
+      >
+      <a class="nav-item nav-link text-white" href="#">Relatório</a>
+      <a class="nav-item nav-link text-white" href="#">Sair</a>
+    </div>
+  </div>
+</div>
+</nav>
 
 
-    {{ include }}
-    <footer class="footer mt-auto py-3">
-      <div class="container">
-        <span class="text-muted">&copy; IFRN 2019</span>
-      </div>
-    </footer>
+{{ include }}
+<footer class="footer mt-auto py-3">
+  <div class="container">
+    <span class="text-muted">&copy; IFRN 2019</span>
+  </div>
+</footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script
-      type="text/javascript"
-      src="{{=URL('static','js/jquery.js')}}"
+    type="text/javascript"
+    src="{{=URL('static','js/jquery.js')}}"
     ></script>
     <!--
       Jquery do Bootstrap
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    -->
+  -->
 
-    <script>
-      
-      $(document).ready(function() {
-        
+  <script>
+
+    $(document).ready(function() {
+
         //SELECT do form lançamento
         /*$("#select-tipo-lancamento").on("change", function() {
           var tipo = this.value;
@@ -167,30 +167,61 @@
         })
 
         //lancamento personalização do form
+        $('#lancamento_data_registro__row').css('display','none');
+        $('select[name=conta]').prop('required', true);
+        $('input[name=valor]').prop('required', true);
+
         var coluna_botao = $('#submit_record__row').children();
         coluna_botao.removeClass('col-sm-9 col-sm-offset-3').addClass('col-md-12');
         coluna_botao.children().addClass('btn-lg btn-block');
         coluna_botao.children().val('Salvar');
-     
+
+        $('input[name=valor]').on('change',function(){
+          str = $(this).val();
+          if (~str.indexOf(",")){
+            alert("Por favor, use 'ponto' e não 'vírgula'");
+          }
+        })
+
+        $(coluna_botao.children()).on('click',function(){
+          var d = new Date();
+
+          var month = d.getMonth()+1;
+          var day = d.getDate();
+          var year = d.getFullYear()  
+          var data = (day<10 ? '0' : '')+day + "-" +(month<10 ? '0' : '') +month + "-" + year;
+          var hora =  d.getHours();
+
+          var minuto = d.getMinutes();
+          var segundo = d.getSeconds();
+          var horario = (hora<10 ? '0' : '') + hora + ":" + (minuto<10 ? '0' : '') + minuto + ":" + (segundo<10 ? '0' : '') + segundo;
+
+          var data_registro = data + " " + horario;
+          console.log(data_registro);
+
+          $('input[name=data_registro]').val(data_registro);
+          
+        })
+
 
       });
     </script>
     <script>
       window.jQuery ||
-        document.write(
-          '<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>'
+      document.write(
+        '<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>'
         );
-    </script>
-   
-    <script
+      </script>
+
+      <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
       crossorigin="anonymous"
-    ></script>
-    <script
+      ></script>
+      <script
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
-    ></script>
-  </body>
-</html>
+      ></script>
+    </body>
+    </html>
